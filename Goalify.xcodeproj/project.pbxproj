@@ -23,6 +23,7 @@
 		9E65B7D62B524F7F009C23A6 /* RewardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7D52B524F7F009C23A6 /* RewardListView.swift */; };
 		9E65B7D82B527DB5009C23A6 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7D72B527DB5009C23A6 /* AppData.swift */; };
 		9E65B7DA2B5281A0009C23A6 /* AppDataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7D92B5281A0009C23A6 /* AppDataVM.swift */; };
+		9E65B7DE2B532E79009C23A6 /* AddDailyTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7DD2B532E79009C23A6 /* AddDailyTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		9E65B7D52B524F7F009C23A6 /* RewardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardListView.swift; sourceTree = "<group>"; };
 		9E65B7D72B527DB5009C23A6 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		9E65B7D92B5281A0009C23A6 /* AppDataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataVM.swift; sourceTree = "<group>"; };
+		9E65B7DD2B532E79009C23A6 /* AddDailyTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDailyTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				9E65B7C92B523D33009C23A6 /* TaskListView.swift */,
 				9E65B7CD2B5247DF009C23A6 /* ColorPalette.swift */,
 				9E65B7CB2B523D79009C23A6 /* Task.swift */,
+				9E65B7DD2B532E79009C23A6 /* AddDailyTaskView.swift */,
 				9E65B7D72B527DB5009C23A6 /* AppData.swift */,
 				9E65B7D12B524F56009C23A6 /* Reward.swift */,
 				9E65B7D92B5281A0009C23A6 /* AppDataVM.swift */,
@@ -295,6 +298,7 @@
 				9E65B7CC2B523D79009C23A6 /* Task.swift in Sources */,
 				9E65B7C82B523A00009C23A6 /* RewardsView.swift in Sources */,
 				9E65B7D82B527DB5009C23A6 /* AppData.swift in Sources */,
+				9E65B7DE2B532E79009C23A6 /* AddDailyTaskView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
