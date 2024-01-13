@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RewardsView: View {
     @ObservedObject var appDataVM: AppDataVM
+    @State var showAddReward = false
     
     init(appDataVM: AppDataVM) {
         self.appDataVM = appDataVM
@@ -18,6 +19,24 @@ struct RewardsView: View {
         VStack {
             RewardsTitle(appDataVM: appDataVM)
             ScrollView {
+                HStack {
+                    Text("Rewards to Redeem!")
+                        .foregroundStyle(ColorPalette.accentColor)
+                        .font(.system(size: 30))
+                        .bold()
+                        .padding(.leading)
+                    Button {
+                        showAddReward.toggle()
+                    } label: {
+                        Image(systemName: "plus.square")
+                            .font(.system(size: 30))
+                    }
+                    .sheet(isPresented: $showAddReward) {
+                        AddRewardsView(rewards: $appDataVM.appData.rewards, showAddReward: $showAddReward, score: $appDataVM.appData.score)
+                    }
+                    Spacer()
+                }
+                
                 RewardListView(appDataVM: appDataVM, canRedeem: true)
                 RewardListView(appDataVM: appDataVM, canRedeem: false)
             }
@@ -38,6 +57,7 @@ private func RewardsTitle(appDataVM: AppDataVM) -> some View {
         Spacer()
         Text("Score: \(appDataVM.appData.score)")
     }
-    .padding(.horizontal, 30)
+    .padding(.horizontal)
+    .padding(.top)
 }
 

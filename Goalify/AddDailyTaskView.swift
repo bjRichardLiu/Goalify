@@ -29,17 +29,21 @@ struct AddDailyTaskView: View {
                     .focused($focused, equals: .name)
             }
             
-            Section(header: Text("Task Points (5-50)")) {
-                TextField("Points", text: $taskPoints)
+            Section(header: Text("Points")) {
+                TextField("Task Points (5-50)", text: $taskPoints)
                     .focused($focused, equals: .points)
                     .keyboardType(.numberPad)
             }
             
-            Button("Add Task") {
-                addDailyTask()
+            Section {
+                Button("Add Task") {
+                    addDailyTask()
+                }
+                Button("Cancel") {
+                    showAddDailyTask = false
+                }
             }
         }
-        .frame(minWidth: 200, minHeight: 100)
         .onAppear {
             focused = .name
         }

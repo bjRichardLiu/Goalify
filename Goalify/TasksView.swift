@@ -16,7 +16,6 @@ struct TasksView: View {
     var body: some View {
         VStack {
             TaskTitle(appDataVM: appDataVM)
-                .padding(.top)
             ScrollView {
                 HStack {
                     Text("Daily")
@@ -32,6 +31,7 @@ struct TasksView: View {
                     }
                     .sheet(isPresented: $showAddDailyTask) {
                         AddDailyTaskView(tasks: $appDataVM.appData.tasks, showAddDailyTask: $showAddDailyTask)
+                            .presentationDetents([.large, .medium, .fraction(0.75)])
                     }
                     Spacer()
                 }
@@ -71,8 +71,9 @@ private func TaskTitle(appDataVM: AppDataVM) -> some View {
         Text("Score: \(appDataVM.appData.score)")
     }
     .padding(.horizontal)
+    .padding(.top)
 }
-
+/*
 private func Tasks(appDataVM: AppDataVM) -> some View {
     
     return ScrollView {
@@ -97,3 +98,4 @@ private func Tasks(appDataVM: AppDataVM) -> some View {
         TaskListView(appDataVM: appDataVM, dailyTasks: false)
     }
 }
+*/

@@ -75,6 +75,7 @@ class AppDataVM: ObservableObject {
             if (!appData.rewards[index].isRedeemed) {
                 appData.rewards[index].isRedeemed = true
                 appData.score -= appData.rewards[index].points
+                appData.rewards.remove(at: index)
             }
         }
     }

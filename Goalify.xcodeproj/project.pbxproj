@@ -22,6 +22,7 @@
 		9E65B7DA2B5281A0009C23A6 /* AppDataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7D92B5281A0009C23A6 /* AppDataVM.swift */; };
 		9E65B7DE2B532E79009C23A6 /* AddDailyTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7DD2B532E79009C23A6 /* AddDailyTaskView.swift */; };
 		9E65B7E02B53395E009C23A6 /* AddWeeklyTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7DF2B53395E009C23A6 /* AddWeeklyTaskView.swift */; };
+		9E65B7E22B5345B3009C23A6 /* AddRewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7E12B5345B3009C23A6 /* AddRewardsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		9E65B7D92B5281A0009C23A6 /* AppDataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataVM.swift; sourceTree = "<group>"; };
 		9E65B7DD2B532E79009C23A6 /* AddDailyTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDailyTaskView.swift; sourceTree = "<group>"; };
 		9E65B7DF2B53395E009C23A6 /* AddWeeklyTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeeklyTaskView.swift; sourceTree = "<group>"; };
+		9E65B7E12B5345B3009C23A6 /* AddRewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRewardsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				9E65B7D92B5281A0009C23A6 /* AppDataVM.swift */,
 				9E65B7D52B524F7F009C23A6 /* RewardListView.swift */,
 				9E65B7C72B523A00009C23A6 /* RewardsView.swift */,
+				9E65B7E12B5345B3009C23A6 /* AddRewardsView.swift */,
 				9E65B7C52B5239ED009C23A6 /* TasksView.swift */,
 				9E65B79F2B52388F009C23A6 /* Assets.xcassets */,
 				9E65B7A12B52388F009C23A6 /* Preview Content */,
@@ -175,6 +178,7 @@
 				9E65B7DA2B5281A0009C23A6 /* AppDataVM.swift in Sources */,
 				9E65B79E2B52388B009C23A6 /* ContentView.swift in Sources */,
 				9E65B7C62B5239ED009C23A6 /* TasksView.swift in Sources */,
+				9E65B7E22B5345B3009C23A6 /* AddRewardsView.swift in Sources */,
 				9E65B7D62B524F7F009C23A6 /* RewardListView.swift in Sources */,
 				9E65B7CA2B523D33009C23A6 /* TaskListView.swift in Sources */,
 				9E65B7E02B53395E009C23A6 /* AddWeeklyTaskView.swift in Sources */,

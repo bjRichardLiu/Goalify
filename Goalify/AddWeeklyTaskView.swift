@@ -29,21 +29,25 @@ struct AddWeeklyTaskView: View {
                     .focused($focused, equals: .name)
             }
             
-            Section(header: Text("Task Points (5-100)")) {
-                TextField("Points", text: $taskPoints)
+            Section(header: Text("Points")) {
+                TextField("Task Points (5-100)", text: $taskPoints)
                     .focused($focused, equals: .points)
                     .keyboardType(.numberPad)
             }
-            
-            Button("Add Task") {
-                addWeeklyTask()
+            Section {
+                Button("Add Task") {
+                    addWeeklyTask()
+                }
+                Button("Cancel") {
+                    showAddWeeklyTask = false
+                }
             }
         }
-        .frame(minWidth: 200, minHeight: 100)
         .onAppear {
             focused = .name
         }
     }
+    
     
     private func addWeeklyTask() {
         guard let points = Int(taskPoints), !taskName.isEmpty, points >= 5, points <= 100 else {

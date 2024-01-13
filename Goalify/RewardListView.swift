@@ -71,7 +71,9 @@ struct RewardListView: View {
         }
     }
     func redeemReward(for reward: Reward) {
-        appDataVM.redeemReward(reward: reward)
+        withAnimation {
+            appDataVM.redeemReward(reward: reward)
+        }
     }
 
 }
