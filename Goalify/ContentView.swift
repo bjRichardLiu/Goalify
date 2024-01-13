@@ -14,11 +14,13 @@ struct ContentView: View {
             .tabItem {
                 Label("Tasks", systemImage: "list.bullet")
             }
+            .toolbarBackground(ColorPalette.neutralColor, for: .tabBar)
 
             RewardsView()
             .tabItem {
                 Label("Rewards", systemImage: "gift")
             }
+            .toolbarBackground(ColorPalette.neutralColor, for: .tabBar)
         }
     }
 }

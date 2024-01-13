@@ -12,8 +12,8 @@ struct TaskListView: View {
     let cornerRadius: CGFloat = 5
     let circleSize: CGFloat = 20
     let leadingPadding: CGFloat = 8
-    let trailingPadding: CGFloat = 6
-    let verticalPadding: CGFloat = 10
+    let trailingPadding: CGFloat = 10
+    let verticalPadding: CGFloat = 15
     
     @State private var tasks = [
         Task(name: "Task 1", points: 10),
@@ -52,11 +52,11 @@ struct TaskListView: View {
                             // Assuming you have a method to toggle completion
                             toggleCompletion(for: task)
                         }
-                        .padding(.leading, leadingPadding)
+                        .padding(.horizontal)
 
                     // Task name aligned to the left
                     Text(task.name)
-                        .padding(.leading, leadingPadding)
+                        //.padding(.leading, leadingPadding)
                         .foregroundColor(.white)
                         .padding(.vertical, verticalPadding)
 
@@ -65,7 +65,7 @@ struct TaskListView: View {
                     Text("+\(task.points)")
                         .padding(.leading, leadingPadding)
                         .foregroundColor(.white)
-                        .padding(.trailing, trailingPadding)
+                        .padding(.horizontal)
                 }
                 .background(RoundedRectangle(cornerRadius: cornerRadius).foregroundColor(ColorPalette.primaryColor))
                 .padding(.horizontal)

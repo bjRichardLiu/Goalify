@@ -13,15 +13,29 @@ struct RewardsView: View {
             RewardsTitle
             Rewards
         }
+        .background(ColorPalette.neutralColor)
     }
 }
 
 private var RewardsTitle: some View {
-    Text("Redeam your points!")
+    HStack {
+        Text("Rewards")
+            .foregroundStyle(ColorPalette.accentColor)
+            .font(.system(size: 50))
+            .bold()
+        Spacer()
+        Text("Score")
+    }
+    .padding(.horizontal, 30)
 }
 
 private var Rewards: some View {
-    Text("Rewards")
+    ScrollView {
+        Text("Redeemable!")
+        RewardListView(canRedeem: true)
+        Text("Keep Working!")
+        RewardListView(canRedeem: false)
+    }
 }
 
 #Preview {
