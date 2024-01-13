@@ -14,6 +14,8 @@
 		9E65B7AD2B52388F009C23A6 /* GoalifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7AC2B52388F009C23A6 /* GoalifyTests.swift */; };
 		9E65B7B72B52388F009C23A6 /* GoalifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7B62B52388F009C23A6 /* GoalifyUITests.swift */; };
 		9E65B7B92B52388F009C23A6 /* GoalifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7B82B52388F009C23A6 /* GoalifyUITestsLaunchTests.swift */; };
+		9E65B7C62B5239ED009C23A6 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7C52B5239ED009C23A6 /* TasksView.swift */; };
+		9E65B7C82B523A00009C23A6 /* RewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7C72B523A00009C23A6 /* RewardsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		9E65B7B22B52388F009C23A6 /* GoalifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoalifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E65B7B62B52388F009C23A6 /* GoalifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalifyUITests.swift; sourceTree = "<group>"; };
 		9E65B7B82B52388F009C23A6 /* GoalifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9E65B7C52B5239ED009C23A6 /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
+		9E65B7C72B523A00009C23A6 /* RewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 			children = (
 				9E65B79B2B52388B009C23A6 /* GoalifyApp.swift */,
 				9E65B79D2B52388B009C23A6 /* ContentView.swift */,
+				9E65B7C72B523A00009C23A6 /* RewardsView.swift */,
+				9E65B7C52B5239ED009C23A6 /* TasksView.swift */,
 				9E65B79F2B52388F009C23A6 /* Assets.xcassets */,
 				9E65B7A12B52388F009C23A6 /* Preview Content */,
 			);
@@ -258,7 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E65B79E2B52388B009C23A6 /* ContentView.swift in Sources */,
+				9E65B7C62B5239ED009C23A6 /* TasksView.swift in Sources */,
 				9E65B79C2B52388B009C23A6 /* GoalifyApp.swift in Sources */,
+				9E65B7C82B523A00009C23A6 /* RewardsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
