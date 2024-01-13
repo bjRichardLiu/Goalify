@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RewardListView: View {
+    @ObservedObject var appDataVM: AppDataVM
     
     let cornerRadius: CGFloat = 5
     let circleSize: CGFloat = 20
@@ -15,6 +16,7 @@ struct RewardListView: View {
     let trailingPadding: CGFloat = 10
     let verticalPadding: CGFloat = 15
     
+    /*
     @State private var rewards = [
         Reward(name: "Reward 1", points: 50),
         Reward(name: "Reward 2", points: 100),
@@ -22,11 +24,12 @@ struct RewardListView: View {
         Reward(name: "Reward 4", points: 120, canRedeem: false),
         Reward(name: "Reward 5", points: 90, canRedeem: false)
     ]
+     */
     
     var canRedeem: Bool
     
     var rewardsToShow: [Reward] {
-        rewards.filter { reward in
+        appDataVM.appData.rewards.filter { reward in
             canRedeem ? reward.canRedeem : !reward.canRedeem
         }
     }
@@ -68,13 +71,10 @@ struct RewardListView: View {
         }
     }
     func redeemReward(for reward: Reward) {
-        if let index = rewards.firstIndex(where: { $0.id == reward.id }) {
-            rewards[index].isRedeemed.toggle()
+        if let index = appDataVM.appData.rewards.firstIndex(where: { $0.id == reward.id }) {
+            appDataVM.appData.rewards[index].isRedeemed.toggle()
         }
     }
 
 }
 
-#Preview {
-    RewardListView(canRedeem: true)
-}

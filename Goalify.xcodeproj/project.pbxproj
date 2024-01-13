@@ -19,10 +19,10 @@
 		9E65B7CA2B523D33009C23A6 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7C92B523D33009C23A6 /* TaskListView.swift */; };
 		9E65B7CC2B523D79009C23A6 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7CB2B523D79009C23A6 /* Task.swift */; };
 		9E65B7CE2B5247DF009C23A6 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7CD2B5247DF009C23A6 /* ColorPalette.swift */; };
-		9E65B7D02B524F4A009C23A6 /* TaskVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7CF2B524F4A009C23A6 /* TaskVM.swift */; };
 		9E65B7D22B524F56009C23A6 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7D12B524F56009C23A6 /* Reward.swift */; };
-		9E65B7D42B524F65009C23A6 /* RewardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7D32B524F65009C23A6 /* RewardVM.swift */; };
 		9E65B7D62B524F7F009C23A6 /* RewardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7D52B524F7F009C23A6 /* RewardListView.swift */; };
+		9E65B7D82B527DB5009C23A6 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7D72B527DB5009C23A6 /* AppData.swift */; };
+		9E65B7DA2B5281A0009C23A6 /* AppDataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7D92B5281A0009C23A6 /* AppDataVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +58,10 @@
 		9E65B7C92B523D33009C23A6 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		9E65B7CB2B523D79009C23A6 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		9E65B7CD2B5247DF009C23A6 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
-		9E65B7CF2B524F4A009C23A6 /* TaskVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskVM.swift; sourceTree = "<group>"; };
 		9E65B7D12B524F56009C23A6 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
-		9E65B7D32B524F65009C23A6 /* RewardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardVM.swift; sourceTree = "<group>"; };
 		9E65B7D52B524F7F009C23A6 /* RewardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardListView.swift; sourceTree = "<group>"; };
+		9E65B7D72B527DB5009C23A6 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		9E65B7D92B5281A0009C23A6 /* AppDataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +117,9 @@
 				9E65B7C92B523D33009C23A6 /* TaskListView.swift */,
 				9E65B7CD2B5247DF009C23A6 /* ColorPalette.swift */,
 				9E65B7CB2B523D79009C23A6 /* Task.swift */,
-				9E65B7CF2B524F4A009C23A6 /* TaskVM.swift */,
+				9E65B7D72B527DB5009C23A6 /* AppData.swift */,
 				9E65B7D12B524F56009C23A6 /* Reward.swift */,
-				9E65B7D32B524F65009C23A6 /* RewardVM.swift */,
+				9E65B7D92B5281A0009C23A6 /* AppDataVM.swift */,
 				9E65B7D52B524F7F009C23A6 /* RewardListView.swift */,
 				9E65B7C72B523A00009C23A6 /* RewardsView.swift */,
 				9E65B7C52B5239ED009C23A6 /* TasksView.swift */,
@@ -286,15 +286,15 @@
 			files = (
 				9E65B7CE2B5247DF009C23A6 /* ColorPalette.swift in Sources */,
 				9E65B7D22B524F56009C23A6 /* Reward.swift in Sources */,
+				9E65B7DA2B5281A0009C23A6 /* AppDataVM.swift in Sources */,
 				9E65B79E2B52388B009C23A6 /* ContentView.swift in Sources */,
 				9E65B7C62B5239ED009C23A6 /* TasksView.swift in Sources */,
 				9E65B7D62B524F7F009C23A6 /* RewardListView.swift in Sources */,
 				9E65B7CA2B523D33009C23A6 /* TaskListView.swift in Sources */,
 				9E65B79C2B52388B009C23A6 /* GoalifyApp.swift in Sources */,
-				9E65B7D02B524F4A009C23A6 /* TaskVM.swift in Sources */,
 				9E65B7CC2B523D79009C23A6 /* Task.swift in Sources */,
 				9E65B7C82B523A00009C23A6 /* RewardsView.swift in Sources */,
-				9E65B7D42B524F65009C23A6 /* RewardVM.swift in Sources */,
+				9E65B7D82B527DB5009C23A6 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

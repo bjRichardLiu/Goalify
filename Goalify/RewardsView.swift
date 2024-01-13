@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct RewardsView: View {
+    @ObservedObject var appDataVM: AppDataVM
+    
     var body: some View {
         VStack {
             RewardsTitle
-            Rewards
+            Rewards(appDataVM: appDataVM)
         }
         .background(ColorPalette.neutralColor)
     }
@@ -29,15 +31,12 @@ private var RewardsTitle: some View {
     .padding(.horizontal, 30)
 }
 
-private var Rewards: some View {
+private func Rewards(appDataVM: AppDataVM) -> some View {
     ScrollView {
         Text("Redeemable!")
-        RewardListView(canRedeem: true)
+        RewardListView(appDataVM: appDataVM, canRedeem: true)
         Text("Keep Working!")
-        RewardListView(canRedeem: false)
+        RewardListView(appDataVM: appDataVM, canRedeem: false)
     }
 }
 
-#Preview {
-    RewardsView()
-}

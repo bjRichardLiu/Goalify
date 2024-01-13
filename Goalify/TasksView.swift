@@ -8,43 +8,42 @@
 import SwiftUI
 
 struct TasksView: View {
+    @ObservedObject var appDataVM: AppDataVM
+    
     var body: some View {
         VStack {
-            TaskTitle
+            TaskTitle(appDataVM: appDataVM)
                 .padding(.top)
-            Tasks
+            Tasks(appDataVM: appDataVM)
         }
         .background(ColorPalette.neutralColor)
     }
 }
 
-private var TaskTitle: some View {
-    HStack {
+private func TaskTitle(appDataVM: AppDataVM) -> some View {
+    return HStack {
         Text("Tasks")
             .foregroundStyle(ColorPalette.accentColor)
             .font(.system(size: 50))
             .bold()
         Spacer()
-        Text("Score")
+        Text("Score: \(appDataVM.appData.score)")
     }
     .padding(.horizontal, 30)
 }
 
-private var Tasks: some View {
-    ScrollView {
+private func Tasks(appDataVM: AppDataVM) -> some View {
+    
+    return ScrollView {
         Text("Daily")
             .foregroundStyle(ColorPalette.accentColor)
             .font(.system(size: 30))
             .bold()
-        TaskListView(dailyTasks: true)
+        TaskListView(appDataVM: appDataVM, dailyTasks: true)
         Text("Weekly")
             .foregroundStyle(ColorPalette.accentColor)
             .font(.system(size: 30))
             .bold()
-        TaskListView(dailyTasks: false)
+        TaskListView(appDataVM: appDataVM, dailyTasks: false)
     }
-}
-
-#Preview {
-    TasksView()
 }

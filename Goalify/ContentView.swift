@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var appDataVM = AppDataVM(appData: AppData(tasks: [], rewards: [], score: 0))
+
     var body: some View {
         TabView {
-            TasksView()
+            TasksView(appDataVM: appDataVM)
             .tabItem {
                 Label("Tasks", systemImage: "list.bullet")
             }
             .toolbarBackground(ColorPalette.neutralColor, for: .tabBar)
 
-            RewardsView()
+            RewardsView(appDataVM: appDataVM)
             .tabItem {
                 Label("Rewards", systemImage: "gift")
             }

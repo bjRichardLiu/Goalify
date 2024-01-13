@@ -9,11 +9,14 @@ import SwiftUI
 
 struct TaskListView: View {
     
+    @ObservedObject var appDataVM: AppDataVM
+    
     let cornerRadius: CGFloat = 5
     let circleSize: CGFloat = 20
     let leadingPadding: CGFloat = 8
     let trailingPadding: CGFloat = 10
     let verticalPadding: CGFloat = 15
+    
     
     @State private var tasks = [
         Task(name: "Task 1", points: 10),
@@ -29,13 +32,14 @@ struct TaskListView: View {
         Task(name: "Task 5", points: 15, isDaily: false)
         
     ]
+     
     
     
     
     var dailyTasks: Bool
     
     var tasksToShow: [Task] {
-        tasks.filter { task in
+        appDataVM.appData.tasks.filter { task in
             dailyTasks ? task.isDaily : !task.isDaily
         }
     }
@@ -102,13 +106,9 @@ struct TaskListView: View {
     
 
     func toggleCompletion(for task: Task) {
-        if let index = tasks.firstIndex(where: { $0.id == task.id }) {
-            tasks[index].isCompleted.toggle()
+        if let index = appDataVM.appData.tasks.firstIndex(where: { $0.id == task.id }) {
+            appDataVM.appData.tasks[index].isCompleted.toggle()
         }
     }
 }
 
-
-#Preview {
-    TaskListView(dailyTasks: true)
-}
