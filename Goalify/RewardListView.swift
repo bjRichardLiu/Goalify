@@ -71,9 +71,7 @@ struct RewardListView: View {
         }
     }
     func redeemReward(for reward: Reward) {
-        if let index = appDataVM.appData.rewards.firstIndex(where: { $0.id == reward.id }) {
-            appDataVM.appData.rewards[index].isRedeemed.toggle()
-        }
+        appDataVM.redeemReward(reward: reward)
     }
 
 }

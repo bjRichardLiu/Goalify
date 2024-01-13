@@ -10,23 +10,30 @@ import SwiftUI
 struct RewardsView: View {
     @ObservedObject var appDataVM: AppDataVM
     
+    init(appDataVM: AppDataVM) {
+        self.appDataVM = appDataVM
+    }
+    
     var body: some View {
         VStack {
-            RewardsTitle
+            RewardsTitle(appDataVM: appDataVM)
             Rewards(appDataVM: appDataVM)
         }
         .background(ColorPalette.neutralColor)
+        .onAppear {
+            appDataVM.checkRedeembility()
+        }
     }
 }
 
-private var RewardsTitle: some View {
-    HStack {
+private func RewardsTitle(appDataVM: AppDataVM) -> some View {
+    return HStack {
         Text("Rewards")
             .foregroundStyle(ColorPalette.accentColor)
             .font(.system(size: 50))
             .bold()
         Spacer()
-        Text("Score")
+        Text("Score: \(appDataVM.appData.score)")
     }
     .padding(.horizontal, 30)
 }

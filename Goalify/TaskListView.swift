@@ -106,9 +106,8 @@ struct TaskListView: View {
     
 
     func toggleCompletion(for task: Task) {
-        if let index = appDataVM.appData.tasks.firstIndex(where: { $0.id == task.id }) {
-            appDataVM.appData.tasks[index].isCompleted.toggle()
-        }
+        appDataVM.toggleTaskCompletion(task: task)
+        
     }
 }
 

@@ -35,15 +35,24 @@ private func TaskTitle(appDataVM: AppDataVM) -> some View {
 private func Tasks(appDataVM: AppDataVM) -> some View {
     
     return ScrollView {
-        Text("Daily")
-            .foregroundStyle(ColorPalette.accentColor)
-            .font(.system(size: 30))
-            .bold()
+        HStack {
+            Text("Daily")
+                .foregroundStyle(ColorPalette.accentColor)
+                .font(.system(size: 30))
+                .bold()
+                .padding(.leading)
+            Spacer()
+        }
         TaskListView(appDataVM: appDataVM, dailyTasks: true)
-        Text("Weekly")
-            .foregroundStyle(ColorPalette.accentColor)
-            .font(.system(size: 30))
-            .bold()
+            .padding(.bottom, 30)
+        HStack {
+            Text("Weekly")
+                .foregroundStyle(ColorPalette.accentColor)
+                .font(.system(size: 30))
+                .bold()
+                .padding(.leading)
+            Spacer()
+        }
         TaskListView(appDataVM: appDataVM, dailyTasks: false)
     }
 }

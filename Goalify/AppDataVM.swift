@@ -32,7 +32,7 @@ class AppDataVM: ObservableObject {
         self.appData.rewards = [reward1, reward2]
 
         // Calculate the initial score
-        updateScore()
+        self.appData.score = 0
     }
 
     // MARK: - Task Operations
@@ -40,40 +40,50 @@ class AppDataVM: ObservableObject {
     func addTask(name: String, points: Int, isDaily: Bool) {
         let newTask = Task(name: name, points: points, isDaily: isDaily)
         appData.tasks.append(newTask)
-        updateScore()
     }
 
     func toggleTaskCompletion(task: Task) {
         if let index = appData.tasks.firstIndex(where: { $0.id == task.id }) {
             appData.tasks[index].isCompleted.toggle()
-            updateScore()
+            appData.score += appData.tasks[index].points
         }
     }
 
     // MARK: - Reward Operations
+    
+    func checkRedeembility() {
+        for index in appData.rewards.indices {
+            if appData.rewards[index].points <= appData.score {
+                appData.rewards[index].canRedeem = true
+            } else {
+                appData.rewards[index].canRedeem = false
+            }
+        }
+    }
 
     func addReward(name: String, points: Int, canRedeem: Bool) {
         let newReward = Reward(name: name, points: points, canRedeem: canRedeem)
         appData.rewards.append(newReward)
-        updateScore()
     }
 
     //TODO: Debug needed
-    /*
+    
     func redeemReward(reward: Reward) {
-        if reward.canRedeem {
-            reward.isRedeemed.toggle()
-            updateScore()
+        if let index = appData.rewards.firstIndex(where: { $0.id == reward.id }) {
+            appData.rewards[index].isRedeemed.toggle()
+            appData.score -= appData.rewards[index].points
         }
     }
-     */
+    
 
     // MARK: - Score Calculation
-
+    /*
     private func updateScore() {
         let taskPoints = appData.tasks.filter { $0.isCompleted }.map { $0.points }.reduce(0, +)
         let rewardPoints = appData.rewards.filter { $0.isRedeemed }.map { $0.points }.reduce(0, +)
 
         appData.score = taskPoints + rewardPoints
     }
+     */
+    
 }
