@@ -13,6 +13,7 @@ struct TasksView: View {
             TaskTitle
             Tasks
         }
+        .background(ColorPalette.neutralColor)
     }
 }
 
@@ -21,7 +22,12 @@ private var TaskTitle: some View {
 }
 
 private var Tasks: some View {
-    Text("Tasks")
+    ScrollView {
+        Text("Daily")
+        TaskListView(dailyTasks: true)
+        Text("Weekly")
+        TaskListView(dailyTasks: false)
+    }
 }
 
 #Preview {
