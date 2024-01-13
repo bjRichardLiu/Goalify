@@ -44,8 +44,10 @@ class AppDataVM: ObservableObject {
 
     func toggleTaskCompletion(task: Task) {
         if let index = appData.tasks.firstIndex(where: { $0.id == task.id }) {
-            appData.tasks[index].isCompleted.toggle()
-            appData.score += appData.tasks[index].points
+            if (!appData.tasks[index].isCompleted) {
+                appData.tasks[index].isCompleted = true
+                appData.score += appData.tasks[index].points
+            }
         }
     }
 
@@ -70,8 +72,10 @@ class AppDataVM: ObservableObject {
     
     func redeemReward(reward: Reward) {
         if let index = appData.rewards.firstIndex(where: { $0.id == reward.id }) {
-            appData.rewards[index].isRedeemed.toggle()
-            appData.score -= appData.rewards[index].points
+            if (!appData.rewards[index].isRedeemed) {
+                appData.rewards[index].isRedeemed = true
+                appData.score -= appData.rewards[index].points
+            }
         }
     }
     

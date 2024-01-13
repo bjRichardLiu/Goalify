@@ -107,7 +107,6 @@ struct TaskListView: View {
 
     func toggleCompletion(for task: Task) {
         appDataVM.toggleTaskCompletion(task: task)
-        
     }
 }
 

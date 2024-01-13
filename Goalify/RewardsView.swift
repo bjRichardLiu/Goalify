@@ -17,7 +17,10 @@ struct RewardsView: View {
     var body: some View {
         VStack {
             RewardsTitle(appDataVM: appDataVM)
-            Rewards(appDataVM: appDataVM)
+            ScrollView {
+                RewardListView(appDataVM: appDataVM, canRedeem: true)
+                RewardListView(appDataVM: appDataVM, canRedeem: false)
+            }
         }
         .background(ColorPalette.neutralColor)
         .onAppear {
@@ -36,14 +39,5 @@ private func RewardsTitle(appDataVM: AppDataVM) -> some View {
         Text("Score: \(appDataVM.appData.score)")
     }
     .padding(.horizontal, 30)
-}
-
-private func Rewards(appDataVM: AppDataVM) -> some View {
-    ScrollView {
-        Text("Redeemable!")
-        RewardListView(appDataVM: appDataVM, canRedeem: true)
-        Text("Keep Working!")
-        RewardListView(appDataVM: appDataVM, canRedeem: false)
-    }
 }
 
