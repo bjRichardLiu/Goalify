@@ -33,16 +33,19 @@ class AppDataVM: ObservableObject {
         // Create default tasks and rewards
         let task1 = Task(name: "Read Book for 10 min", points: 10)
         let task2 = Task(name: "Learn French", points: 20)
-        let task3 = Task(name: "Exercise", points: 15)
-        let task4 = Task(name: "Finish all HW for the week", points: 50, isDaily: false)
-        let task5 = Task(name: "Do laundry", points: 15, isDaily: false)
+        let task3 = Task(name: "Exercise", points: 25)
+        let task4 = Task(name: "Finish all HW", points: 100, isDaily: false)
+        let task5 = Task(name: "Do laundry", points: 30, isDaily: false)
 
         let reward1 = Reward(name: "Eat Out", points: 50, canRedeem: true)
-        let reward2 = Reward(name: "Buy a new game", points: 200, canRedeem: false)
+        let reward2 = Reward(name: "Watch a Movie", points: 50, canRedeem: true)
+        let reward3 = Reward(name: "Play Games for 1h", points: 100, canRedeem: true)
+        let reward4 = Reward(name: "Buy a new game", points: 200, canRedeem: false)
+        let reward5 = Reward(name: "A Day Off", points: 1000, canRedeem: false)
 
         // Set tasks and rewards
         self.appData.tasks = [task1, task2, task3, task4, task5]
-        self.appData.rewards = [reward1, reward2]
+        self.appData.rewards = [reward1, reward2, reward3, reward4, reward5]
         self.appData.score = 0
     }
 

@@ -70,7 +70,11 @@ struct TasksView: View {
             }
             
         }
-        .background(ColorPalette.neutralColor)
+        .background(
+            Image("BackGround")
+                .resizable()
+                .ignoresSafeArea()
+        )
         .onAppear {
             appDataVM.resetTaskCompletion()
         }

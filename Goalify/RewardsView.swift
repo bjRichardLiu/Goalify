@@ -19,28 +19,31 @@ struct RewardsView: View {
         VStack {
             RewardsTitle(appDataVM: appDataVM)
             ScrollView {
-                HStack {
-                    Spacer()
-                    Button {
-                        showAddReward.toggle()
-                    } label: {
-                        Image(systemName: "note.text.badge.plus")
-                            .font(.system(size: 30))
-                            .foregroundStyle(ColorPalette.accentColor)
-                    }
-                    .sheet(isPresented: $showAddReward) {
-                        AddRewardsView(rewards: $appDataVM.appData.rewards, showAddReward: $showAddReward, score: $appDataVM.appData.score)
-                    }
-                    .padding(.trailing)
-                    .foregroundStyle(ColorPalette.secondaryColor)
-                    
-                }
-                
                 RewardListView(appDataVM: appDataVM, canRedeem: true)
                 RewardListView(appDataVM: appDataVM, canRedeem: false)
             }
+            HStack {
+                Spacer()
+                Button {
+                    showAddReward.toggle()
+                } label: {
+                    Image(systemName: "note.text.badge.plus")
+                        .font(.system(size: 30))
+                        .foregroundStyle(ColorPalette.accentColor)
+                }
+                .sheet(isPresented: $showAddReward) {
+                    AddRewardsView(rewards: $appDataVM.appData.rewards, showAddReward: $showAddReward, score: $appDataVM.appData.score)
+                }
+                .padding(.trailing)
+                .foregroundStyle(ColorPalette.secondaryColor)
+                
+            }
         }
-        .background(ColorPalette.neutralColor)
+        .background(
+            Image("BackGround")
+                .resizable()
+                .ignoresSafeArea()
+        )
         .onAppear {
             appDataVM.checkRedeembility()
         }

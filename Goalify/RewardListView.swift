@@ -35,12 +35,12 @@ struct RewardListView: View {
         }
     }
     
-    var cellColor: Color {
-        canRedeem ? ColorPalette.primaryColor : ColorPalette.deactivateColor
+    var cellImage: String {
+        canRedeem ? "RewardCan" : "RewardCant"
     }
     
     var body: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 16)], spacing: 16) {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 8)], spacing: 8) {
             ForEach(rewardsToShow) { reward in
                 var complete: String {
                     reward.isRedeemed ? "checkmark.circle.fill" : "circle"
@@ -57,11 +57,10 @@ struct RewardListView: View {
                         .padding(.horizontal)
                         .font(.title)
                      */
-                    
                     // Reward name aligned to the left
                     Text(reward.name)
                         .foregroundColor(.white)
-                        .padding(.vertical, verticalPadding)
+                        .padding(.top, verticalPadding)
                     
                     // Points aligned to the right
                     //Spacer()
@@ -69,8 +68,10 @@ struct RewardListView: View {
                         .padding(.vertical, verticalPadding)
                         .foregroundColor(.white)
                     Text("Redeemed × \(reward.numRedeemed)")
-                        .padding(.vertical, verticalPadding)
+                        .padding(.bottom, verticalPadding)
                         .foregroundColor(.white)
+
+                    /*
                     Button {
                         if (reward.canRedeem) {
                             redeemReward(for: reward)
@@ -78,10 +79,20 @@ struct RewardListView: View {
                     } label: {
                         Text("Redeem!")
                     }
+                     */
                 }
-                .frame(width: 150, height: 225)
-                .background(RoundedRectangle(cornerRadius: cornerRadius).foregroundColor(cellColor))
-                .aspectRatio(2/3, contentMode: .fit)
+                .frame(width: 180, height: 180)
+                //.background(RoundedRectangle(cornerRadius: cornerRadius).foregroundColor(cellColor))
+                .background(
+                    Image(cellImage)
+                        .resizable()
+                )
+                .aspectRatio(1, contentMode: .fit)
+                .onTapGesture {
+                    if reward.canRedeem {
+                        redeemReward(for: reward)
+                    }
+                }
                 .onLongPressGesture {
                     selectedReward = reward
                 }
@@ -102,10 +113,10 @@ struct RewardListView: View {
         }
     }
     func redeemReward(for reward: Reward) {
-        withAnimation {
+        withAnimation(.snappy(duration: 0.5)) {
             appDataVM.redeemReward(reward: reward)
+            appDataVM.checkRedeembility()
         }
-        appDataVM.checkRedeembility()
         
     }
     
