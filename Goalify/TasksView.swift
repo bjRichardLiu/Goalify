@@ -19,40 +19,46 @@ struct TasksView: View {
             ScrollView {
                 HStack {
                     Text("Daily")
-                        .foregroundStyle(ColorPalette.accentColor)
+                        .foregroundStyle(ColorPalette.secondaryColor)
                         .font(.system(size: 30))
                         .bold()
                         .padding(.leading)
+                    Spacer()
                     Button {
                         showAddDailyTask.toggle()
                     } label: {
-                        Image(systemName: "plus.square")
+                        Image(systemName: "note.text.badge.plus")
                             .font(.system(size: 30))
+                            .foregroundStyle(ColorPalette.accentColor)
                     }
                     .sheet(isPresented: $showAddDailyTask) {
                         AddDailyTaskView(tasks: $appDataVM.appData.tasks, showAddDailyTask: $showAddDailyTask)
                             .presentationDetents([.large, .medium, .fraction(0.75)])
                     }
-                    Spacer()
+                    .padding(.trailing)
+                    .foregroundStyle(ColorPalette.secondaryColor)
                 }
                 TaskListView(appDataVM: appDataVM, dailyTasks: true)
                     .padding(.bottom, 30)
                 HStack {
                     Text("Weekly")
-                        .foregroundStyle(ColorPalette.accentColor)
+                        .foregroundStyle(ColorPalette.secondaryColor)
                         .font(.system(size: 30))
                         .bold()
                         .padding(.leading)
+                    Spacer()
                     Button {
                         showAddWeeklyTask.toggle()
                     } label: {
-                        Image(systemName: "plus.square")
+                        Image(systemName: "note.text.badge.plus")
                             .font(.system(size: 30))
+                            .foregroundStyle(ColorPalette.accentColor)
                     }
                     .sheet(isPresented: $showAddWeeklyTask) {
                         AddWeeklyTaskView(tasks: $appDataVM.appData.tasks, showAddWeeklyTask: $showAddWeeklyTask)
                     }
-                    Spacer()
+                    .padding(.trailing)
+                    .foregroundStyle(ColorPalette.secondaryColor)
                 }
                 TaskListView(appDataVM: appDataVM, dailyTasks: false)
             }
@@ -74,11 +80,13 @@ struct TasksView: View {
 private func TaskTitle(appDataVM: AppDataVM) -> some View {
     return HStack {
         Text("Tasks")
-            .foregroundStyle(ColorPalette.accentColor)
+            .foregroundStyle(ColorPalette.secondaryColor)
             .font(.system(size: 50))
             .bold()
         Spacer()
         Text("Score: \(appDataVM.appData.score)")
+            .foregroundStyle(ColorPalette.deactivateColor)
+            .bold()
     }
     .padding(.horizontal)
     .padding(.top)

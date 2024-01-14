@@ -42,17 +42,19 @@ struct RewardListView: View {
     var body: some View {
         LazyVStack {
             ForEach(rewardsToShow) { reward in
+                var complete: String {
+                    reward.isRedeemed ? "checkmark.circle.fill" : "circle"
+                }
                 HStack {
                     // Circle for completion
-                    Circle()
-                        .frame(width: circleSize, height: circleSize)
-                        .foregroundColor(reward.isRedeemed ? .green : .gray)
+                    Image(systemName: complete)
                         .onTapGesture {
                             if (reward.canRedeem) {
                                 redeemReward(for: reward)
                             }
                         }
                         .padding(.horizontal)
+                        .font(.title)
                     
                     // Reward name aligned to the left
                     Text(reward.name)
@@ -90,7 +92,9 @@ struct RewardListView: View {
     func redeemReward(for reward: Reward) {
         withAnimation {
             appDataVM.redeemReward(reward: reward)
+            deleteReward(reward)
         }
+        
     }
     
     func deleteReward(_ reward: Reward) {

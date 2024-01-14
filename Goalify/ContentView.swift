@@ -15,7 +15,7 @@ struct ContentView: View {
         TabView {
             TasksView(appDataVM: appDataVM)
             .tabItem {
-                Label("Tasks", systemImage: "list.bullet")
+                Label("Tasks", systemImage: "list.clipboard.fill")
             }
             .toolbarBackground(ColorPalette.neutralColor, for: .tabBar)
 

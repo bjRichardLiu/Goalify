@@ -44,26 +44,30 @@ struct TaskListView: View {
             dailyTasks ? task.isDaily : !task.isDaily
         }
     }
+    
 
     var body: some View {
         LazyVStack {
             ForEach(tasksToShow) { task in
+                var complete: String {
+                    task.isCompleted ? "checkmark.circle.fill" : "circle"
+                }
                 HStack {
                     // Circle for completion
-                    Circle()
-                        .frame(width: circleSize, height: circleSize)
-                        .foregroundColor(task.isCompleted ? .green : .gray)
+                    Image(systemName: complete)
                         .onTapGesture {
                             // Assuming you have a method to toggle completion
                             toggleCompletion(for: task)
                         }
                         .padding(.horizontal)
+                        .font(.title)
 
                     // Task name aligned to the left
                     Text(task.name)
                         //.padding(.leading, leadingPadding)
                         .foregroundColor(.white)
                         .padding(.vertical, verticalPadding)
+                        .bold()
 
                     // Points aligned to the right
                     Spacer()
@@ -71,6 +75,7 @@ struct TaskListView: View {
                         .padding(.leading, leadingPadding)
                         .foregroundColor(.white)
                         .padding(.horizontal)
+                        .bold()
                 }
                 .background(RoundedRectangle(cornerRadius: cornerRadius).foregroundColor(ColorPalette.primaryColor))
                 .padding(.horizontal)

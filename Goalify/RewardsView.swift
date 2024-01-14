@@ -20,21 +20,25 @@ struct RewardsView: View {
             RewardsTitle(appDataVM: appDataVM)
             ScrollView {
                 HStack {
-                    Text("Rewards to Redeem!")
-                        .foregroundStyle(ColorPalette.accentColor)
+                    Text("Redeem!")
+                        .foregroundStyle(ColorPalette.secondaryColor)
                         .font(.system(size: 30))
                         .bold()
                         .padding(.leading)
+                    Spacer()
                     Button {
                         showAddReward.toggle()
                     } label: {
-                        Image(systemName: "plus.square")
+                        Image(systemName: "note.text.badge.plus")
                             .font(.system(size: 30))
+                            .foregroundStyle(ColorPalette.accentColor)
                     }
                     .sheet(isPresented: $showAddReward) {
                         AddRewardsView(rewards: $appDataVM.appData.rewards, showAddReward: $showAddReward, score: $appDataVM.appData.score)
                     }
-                    Spacer()
+                    .padding(.trailing)
+                    .foregroundStyle(ColorPalette.secondaryColor)
+                    
                 }
                 
                 RewardListView(appDataVM: appDataVM, canRedeem: true)
@@ -52,11 +56,13 @@ struct RewardsView: View {
 private func RewardsTitle(appDataVM: AppDataVM) -> some View {
     return HStack {
         Text("Rewards")
-            .foregroundStyle(ColorPalette.accentColor)
+            .foregroundStyle(ColorPalette.secondaryColor)
             .font(.system(size: 50))
             .bold()
         Spacer()
         Text("Score: \(appDataVM.appData.score)")
+            .foregroundStyle(ColorPalette.deactivateColor)
+            .bold()
     }
     .padding(.horizontal)
     .padding(.top)
