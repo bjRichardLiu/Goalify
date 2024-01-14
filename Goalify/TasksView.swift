@@ -65,6 +65,9 @@ struct TasksView: View {
             
         }
         .background(ColorPalette.neutralColor)
+        .onAppear {
+            appDataVM.resetTaskCompletion()
+        }
     }
 }
 

@@ -13,4 +13,5 @@ struct Task: Identifiable, Codable {
     var points: Int
     var isCompleted: Bool = false
     var isDaily: Bool = true
+    var lastCompletedDate: Date?
 }

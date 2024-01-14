@@ -67,6 +67,30 @@ class AppDataVM: ObservableObject {
         initializeDefaultData()
     }
     
+    
+    // Resets task completion every day/week
+    func resetTaskCompletion() {
+        let currentDate = Date()
+
+        for index in appData.tasks.indices {
+            if appData.tasks[index].isDaily {
+                // Reset completion for daily tasks if lastCompletedDate is not today
+                if let lastCompletedDate = appData.tasks[index].lastCompletedDate,
+                   !Calendar.current.isDateInToday(lastCompletedDate) {
+                    appData.tasks[index].isCompleted = false
+                }
+            } else {
+                // Reset completion for non-daily tasks if lastCompletedDate is not within the current week
+                if let lastCompletedDate = appData.tasks[index].lastCompletedDate,
+                   !Calendar.current.isDate(lastCompletedDate, equalTo: currentDate, toGranularity: .weekOfYear) {
+                    appData.tasks[index].isCompleted = false
+                }
+            }
+        }
+
+        saveData()
+    }
+    
     // MARK: - Task Operations
 
     func addTask(name: String, points: Int, isDaily: Bool) {
@@ -79,6 +103,7 @@ class AppDataVM: ObservableObject {
         if let index = appData.tasks.firstIndex(where: { $0.id == task.id }) {
             if !appData.tasks[index].isCompleted {
                 appData.tasks[index].isCompleted = true
+                appData.tasks[index].lastCompletedDate = Date()
                 appData.score += appData.tasks[index].points
             }
             saveData()
