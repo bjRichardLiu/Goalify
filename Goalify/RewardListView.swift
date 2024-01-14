@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RewardListView: View {
     @ObservedObject var appDataVM: AppDataVM
+    @State private var selectedReward: Reward?
     
     let cornerRadius: CGFloat = 5
     let circleSize: CGFloat = 20
@@ -67,13 +68,33 @@ struct RewardListView: View {
                 }
                 .background(RoundedRectangle(cornerRadius: cornerRadius).foregroundColor(cellColor))
                 .padding(.horizontal)
+                .onLongPressGesture {
+                    selectedReward = reward
+                }
             }
+        }
+        .actionSheet(item: $selectedReward) { reward in
+            // Action sheet for delete confirmation
+            ActionSheet(
+                title: Text("Delete Reward"),
+                buttons: [
+                    .destructive(Text("Delete")) {
+                        // Delete the selected task
+                        deleteReward(reward)
+                    },
+                    .cancel()
+                ]
+            )
         }
     }
     func redeemReward(for reward: Reward) {
         withAnimation {
             appDataVM.redeemReward(reward: reward)
         }
+    }
+    
+    func deleteReward(_ reward: Reward) {
+        appDataVM.deleteReward(reward: reward)
     }
 
 }

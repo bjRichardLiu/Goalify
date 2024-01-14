@@ -10,6 +10,7 @@ import SwiftUI
 struct TaskListView: View {
     
     @ObservedObject var appDataVM: AppDataVM
+    @State private var selectedTask: Task?
     
     let cornerRadius: CGFloat = 5
     let circleSize: CGFloat = 20
@@ -17,7 +18,7 @@ struct TaskListView: View {
     let trailingPadding: CGFloat = 10
     let verticalPadding: CGFloat = 15
     
-    
+    /*
     @State private var tasks = [
         Task(name: "Task 1", points: 10),
         Task(name: "Task 2", points: 20),
@@ -32,7 +33,7 @@ struct TaskListView: View {
         Task(name: "Task 5", points: 15, isDaily: false)
         
     ]
-     
+    */
     
     
     
@@ -73,10 +74,24 @@ struct TaskListView: View {
                 }
                 .background(RoundedRectangle(cornerRadius: cornerRadius).foregroundColor(ColorPalette.primaryColor))
                 .padding(.horizontal)
+                .onLongPressGesture {
+                    selectedTask = task
+                }
             }
         }
-        //.background(Color.black) // Set background color for the entire LazyVStack
-        
+        .actionSheet(item: $selectedTask) { task in
+            // Action sheet for delete confirmation
+            ActionSheet(
+                title: Text("Delete Task"),
+                buttons: [
+                    .destructive(Text("Delete")) {
+                        // Delete the selected task
+                        deleteTask(task)
+                    },
+                    .cancel()
+                ]
+            )
+        }
         /*
         List(tasksToShow) { task in
             HStack {
@@ -107,6 +122,10 @@ struct TaskListView: View {
 
     func toggleCompletion(for task: Task) {
         appDataVM.toggleTaskCompletion(task: task)
+    }
+    
+    func deleteTask(_ task: Task) {
+        appDataVM.deleteTask(task: task)
     }
 }
 

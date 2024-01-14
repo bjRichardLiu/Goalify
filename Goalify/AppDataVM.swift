@@ -84,6 +84,13 @@ class AppDataVM: ObservableObject {
             saveData()
         }
     }
+    
+    func deleteTask(task: Task) {
+        if let index = appData.tasks.firstIndex(where: { $0.id == task.id }) {
+            appData.tasks.remove(at: index)
+        }
+        saveData()
+    }
 
     // MARK: - Reward Operations
     
@@ -111,6 +118,13 @@ class AppDataVM: ObservableObject {
                 appData.rewards.remove(at: index)
                 saveData()
             }
+        }
+    }
+    
+    func deleteReward(reward: Reward) {
+        if let index = appData.rewards.firstIndex(where: { $0.id == reward.id }) {
+            appData.rewards.remove(at: index)
+            saveData()
         }
     }
 }
