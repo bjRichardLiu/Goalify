@@ -77,7 +77,19 @@ struct TaskListView: View {
                         .padding(.horizontal)
                         .bold()
                 }
-                .background(RoundedRectangle(cornerRadius: cornerRadius).foregroundColor(ColorPalette.primaryColor))
+//                .background(
+//                    ZStack {
+//                        RoundedRectangle(cornerRadius: cornerRadius)
+//                            .foregroundColor(ColorPalette.primaryColor)
+//                        RoundedRectangle(cornerRadius: cornerRadius)
+//                            .stroke(style: StrokeStyle(lineWidth: 1.5, dash: [5]))
+//                            .foregroundColor(ColorPalette.secondaryColor)
+//                })
+                .background(
+                    Image("Task")
+                        .resizable()
+                        .aspectRatio(8, contentMode: .fill)
+                )
                 .padding(.horizontal)
                 .onLongPressGesture {
                     selectedTask = task

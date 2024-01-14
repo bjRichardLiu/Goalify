@@ -13,4 +13,5 @@ struct Reward: Identifiable, Codable {
     var points: Int
     var isRedeemed: Bool = false
     var canRedeem: Bool = true
+    var numRedeemed: Int = 0
 }

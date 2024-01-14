@@ -20,11 +20,6 @@ struct RewardsView: View {
             RewardsTitle(appDataVM: appDataVM)
             ScrollView {
                 HStack {
-                    Text("Redeem!")
-                        .foregroundStyle(ColorPalette.secondaryColor)
-                        .font(.system(size: 30))
-                        .bold()
-                        .padding(.leading)
                     Spacer()
                     Button {
                         showAddReward.toggle()

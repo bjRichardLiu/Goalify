@@ -40,13 +40,14 @@ struct RewardListView: View {
     }
     
     var body: some View {
-        LazyVStack {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 16)], spacing: 16) {
             ForEach(rewardsToShow) { reward in
                 var complete: String {
                     reward.isRedeemed ? "checkmark.circle.fill" : "circle"
                 }
-                HStack {
+                VStack {
                     // Circle for completion
+                    /*
                     Image(systemName: complete)
                         .onTapGesture {
                             if (reward.canRedeem) {
@@ -55,6 +56,7 @@ struct RewardListView: View {
                         }
                         .padding(.horizontal)
                         .font(.title)
+                     */
                     
                     // Reward name aligned to the left
                     Text(reward.name)
@@ -62,14 +64,24 @@ struct RewardListView: View {
                         .padding(.vertical, verticalPadding)
                     
                     // Points aligned to the right
-                    Spacer()
+                    //Spacer()
                     Text("\(reward.points)")
-                        .padding(.leading, leadingPadding)
+                        .padding(.vertical, verticalPadding)
                         .foregroundColor(.white)
-                        .padding(.horizontal)
+                    Text("Redeemed × \(reward.numRedeemed)")
+                        .padding(.vertical, verticalPadding)
+                        .foregroundColor(.white)
+                    Button {
+                        if (reward.canRedeem) {
+                            redeemReward(for: reward)
+                        }
+                    } label: {
+                        Text("Redeem!")
+                    }
                 }
+                .frame(width: 150, height: 225)
                 .background(RoundedRectangle(cornerRadius: cornerRadius).foregroundColor(cellColor))
-                .padding(.horizontal)
+                .aspectRatio(2/3, contentMode: .fit)
                 .onLongPressGesture {
                     selectedReward = reward
                 }
@@ -92,8 +104,8 @@ struct RewardListView: View {
     func redeemReward(for reward: Reward) {
         withAnimation {
             appDataVM.redeemReward(reward: reward)
-            deleteReward(reward)
         }
+        appDataVM.checkRedeembility()
         
     }
     

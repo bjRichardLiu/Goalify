@@ -23,6 +23,7 @@
 		9E65B7DE2B532E79009C23A6 /* AddDailyTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7DD2B532E79009C23A6 /* AddDailyTaskView.swift */; };
 		9E65B7E02B53395E009C23A6 /* AddWeeklyTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7DF2B53395E009C23A6 /* AddWeeklyTaskView.swift */; };
 		9E65B7E22B5345B3009C23A6 /* AddRewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E65B7E12B5345B3009C23A6 /* AddRewardsView.swift */; };
+		9E65B7E42B53E874009C23A6 /* Goalify_Task.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E65B7E32B53E874009C23A6 /* Goalify_Task.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		9E65B7DD2B532E79009C23A6 /* AddDailyTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDailyTaskView.swift; sourceTree = "<group>"; };
 		9E65B7DF2B53395E009C23A6 /* AddWeeklyTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeeklyTaskView.swift; sourceTree = "<group>"; };
 		9E65B7E12B5345B3009C23A6 /* AddRewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRewardsView.swift; sourceTree = "<group>"; };
+		9E65B7E32B53E874009C23A6 /* Goalify_Task.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Goalify_Task.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				9E65B7E12B5345B3009C23A6 /* AddRewardsView.swift */,
 				9E65B7C52B5239ED009C23A6 /* TasksView.swift */,
 				9E65B79F2B52388F009C23A6 /* Assets.xcassets */,
+				9E65B7E32B53E874009C23A6 /* Goalify_Task.png */,
 				9E65B7A12B52388F009C23A6 /* Preview Content */,
 			);
 			path = Goalify;
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E65B7A32B52388F009C23A6 /* Preview Assets.xcassets in Resources */,
+				9E65B7E42B53E874009C23A6 /* Goalify_Task.png in Resources */,
 				9E65B7A02B52388F009C23A6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
