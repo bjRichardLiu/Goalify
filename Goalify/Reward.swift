@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Reward: Identifiable {
+struct Reward: Identifiable, Codable {
     var id = UUID()
     var name: String
     var points: Int

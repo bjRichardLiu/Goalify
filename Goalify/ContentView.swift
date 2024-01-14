@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var appDataVM = AppDataVM(appData: AppData(tasks: [], rewards: [], score: 0))
+    @StateObject var appDataVM = AppDataVM()
+
 
     var body: some View {
         TabView {

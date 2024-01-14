@@ -56,6 +56,13 @@ struct TasksView: View {
                 }
                 TaskListView(appDataVM: appDataVM, dailyTasks: false)
             }
+            Button {
+                appDataVM.resetData()
+            } label: {
+                Image(systemName: "gearshape")
+                    .font(.system(size: 30))
+            }
+            
         }
         .background(ColorPalette.neutralColor)
     }

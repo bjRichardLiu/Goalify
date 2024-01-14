@@ -48,6 +48,7 @@ struct RewardsView: View {
     }
 }
 
+
 private func RewardsTitle(appDataVM: AppDataVM) -> some View {
     return HStack {
         Text("Rewards")
